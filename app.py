@@ -14,21 +14,21 @@ st.set_page_config(page_title="Breast Cancer Predictor", page_icon="🧬")
 
 # Sidebar
 with st.sidebar:
-    st.title("👨‍💻 About")
+    st.title("About")
     st.write("**Adarsh Kumar**")
-    st.markdown("[🔗 GitHub](https://github.com/adarsh-2357)")
+    st.markdown("[GitHub](https://github.com/adarsh-2357)")
     st.markdown("---")
     st.write("This app predicts whether a breast tumor is **benign** or **malignant** using 10 selected features.")
 
 # Title
-st.title("🩺 Breast Cancer Prediction App")
+st.title("Breast Cancer Prediction App")
 
 # Initialize session state for reset
 if "reset" not in st.session_state:
     st.session_state.reset = False
 
 # Reset button logic
-if st.button("🔁 Reset All Inputs"):
+if st.button("Reset All Inputs"):
     st.session_state.reset = True
 
 # Reset values if reset was clicked
@@ -57,25 +57,25 @@ features = np.array([[mean_radius, mean_perimeter, mean_area, mean_concavity, me
                       worst_radius, worst_perimeter, worst_area, worst_concavity, worst_concave_points]])
 
 # Prediction
-if st.button("🔍 Predict"):
+if st.button("Predict"):
     st.session_state.reset = False
 
     # Warn if any input is zero
     if np.any(features == 0.0):
-        st.warning("⚠️ One or more inputs are zero. Please enter valid, non-zero values for a reliable prediction.")
+        st.warning(" One or more inputs are zero. Please enter valid, non-zero values for a reliable prediction.")
     else:
         scaled = scaler.transform(features)
         prediction = model.predict(scaled)[0]
         probability = model.predict_proba(scaled)[0][prediction]
 
         if prediction == 0:
-            st.success(f"🎉 The tumor is **Benign**.\n🧪 Confidence: {probability * 100:.2f}%")
+            st.success(f"🎉 The tumor is **Benign**.\n Confidence: {probability * 100:.2f}%")
         else:
-            st.error(f"⚠️ The tumor is **Malignant**.\n🧪 Confidence: {probability * 100:.2f}%")
+            st.error(f"⚠️ The tumor is **Malignant**.\n Confidence: {probability * 100:.2f}%")
 
 # Footer
 st.markdown("---")
 st.markdown(
-    "<center><sub>Made with ❤️ using Streamlit</sub></center>",
+    "<center><sub>Made with using Streamlit</sub></center>",
     unsafe_allow_html=True
 )
