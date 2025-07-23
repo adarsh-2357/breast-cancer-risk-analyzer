@@ -1,64 +1,82 @@
-# breast-cancer-risk-analyzer
+# Breast Cancer Risk Analyzer
 
 A machine learning–powered web application for early detection of breast cancer using the **10 most important diagnostic features**.  
-Built with **Streamlit** and deployed locally.
+Built using **Streamlit** and deployed on **Streamlit Cloud**.
 
 ---
 
-## Overview
+## Live App
 
-This project aims to help identify the risk of breast cancer by analyzing a patient's diagnostic data.  
-It uses a trained **Support Vector Classifier (SVC)** model for predictions, with features selected based on importance scores.
+You can access and use the app directly via the link below:  
+**[👉 Launch the App](https://breast-cancer-risk-analyzer-mjgmivkhzy9ghybcvnhd3a.streamlit.app/)**
 
-The app includes:
-- Streamlit web UI with input sliders
-- Sidebar with developer info and GitHub
-- Prediction probability output
-- Model trained only on top 10 features for efficiency
-- Reset button for easy use
+---
+
+## Project Overview
+
+This project helps identify the risk of breast cancer by analyzing diagnostic data from patients.  
+The core model is a trained **Support Vector Classifier (SVC)** using 10 top-ranked features selected for maximum predictive performance and efficiency.
+
+### Key Features:
+- Web-based UI developed in Streamlit
+- Resettable input fields for easy usability
+- Shows prediction probability along with classification
+- Compares multiple ML models before selecting the best
+- Deployed to Streamlit Cloud for online access
 
 ---
 
 ## Models Compared
 
-Several models were trained and evaluated before selecting the final one:
+Before selecting the final model, several machine learning algorithms were trained and evaluated on the same dataset:
 
-| Model                 | Accuracy (approx.) |
-|----------------------|--------------------|
-| K-Nearest Neighbors  |  Compared |
-| Random Forest        |  Compared |
-| Logistic Regression  |  Compared |
-| **SVC (Final Model)**|  Best overall |
+| Model                 | Performance |
+|----------------------|-------------|
+| K-Nearest Neighbors  | Compared    |
+| Random Forest        | Compared    |
+| Logistic Regression  | Compared    |
+| **Support Vector Classifier (Final)** | Best Overall |
 
 ---
 
-## Files in This Repo
+## Repository Structure
 
 | File                    | Description                                           |
 |-------------------------|-------------------------------------------------------|
-| `app.py`                | Streamlit UI logic and API for local deployment       |
-| `svc.pkl`               | Trained SVC model using top 10 features               |
-| `scaler.pkl`            | StandardScaler used during model training             |
-| `breastcancerml.ipynb`  | Full training + model comparison notebook             |
-| `README.md`             | This file                                             |
+| `app.py`                | Streamlit web app code                                |
+| `svc.pkl`               | Trained SVC model (on 10 features)                    |
+| `scaler.pkl`            | StandardScaler object used for consistent preprocessing |
+| `breastcancerml.ipynb`  | Jupyter Notebook with training, feature selection, and model comparisons |
+| `README.md`             | Project documentation (this file)                    |
 
 ---
 
-## Notebook
+## Notebook: Model Development
 
-[`breastcancerml.ipynb`](breastcancerml.ipynb)  
-Contains:
-- Data cleaning & preprocessing
-- Feature selection via importance ranking
-- Model training and evaluation
-- Comparison of multiple ML models
-- Accuracy, confusion matrices, insights
+See [`breastcancerml.ipynb`](breastcancerml.ipynb) for:
+- Data cleaning and preprocessing steps
+- Feature importance analysis and selection
+- Training and tuning multiple classifiers
+- Model evaluation with accuracy and confusion matrices
+- Final model export (with `pickle`)
 
 ---
 
-## How to Run
+## Running the App Locally
 
-1. Clone the repo:
+1. Clone this repository:
    ```bash
    git clone https://github.com/your-username/breast-cancer-risk-analyzer
    cd breast-cancer-risk-analyzer
+2. Install dependencies:
+    ```bash
+   pip install -r requirements.txt
+3. Run the Streamlit App
+   ```bash
+   streamlit run app.py
+
+---
+
+## Credits
+   Developed by Adarsh Kumar
+   GitHub: adarsh-2357
